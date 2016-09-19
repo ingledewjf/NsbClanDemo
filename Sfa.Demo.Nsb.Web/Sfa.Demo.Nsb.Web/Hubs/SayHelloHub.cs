@@ -1,8 +1,13 @@
 ﻿namespace Sfa.Demo.Nsb.Web.Hubs
 {
-    using Microsoft.AspNet.SignalR;
+    using System;
 
-    using Sfa.Demo.Nsb.Common.Events;
+    using Microsoft.AspNet.SignalR;
+    using Microsoft.AspNet.SignalR.Hubs;
+
+    using NServiceBus;
+
+    using Sfa.Demo.Nsb.Common.Commands;
     using Sfa.Demo.Nsb.Web.Nsb;
 
     public class SayHelloHub : Hub
@@ -20,9 +25,17 @@
 
             var isNumber = int.TryParse(number, out numToPublish);
 
-            if (isNumber)
+            try
             {
-                ServiceBus.Bus.Publish<IDoSomething>(msg => { msg.Number = numToPublish; });
+                if (isNumber)
+                {
+                    ServiceBus.Bus.Send<DoSomething>(msg => { msg.Number = numToPublish; });
+                }
+            }
+            catch (Exception ex)
+            {
+                var test = ex.Message;
+                Console.WriteLine(test);
             }
         }
 

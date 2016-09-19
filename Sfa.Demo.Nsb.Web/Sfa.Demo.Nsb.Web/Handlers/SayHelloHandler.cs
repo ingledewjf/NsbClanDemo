@@ -8,9 +8,9 @@
 
     using Hubs;
 
-    public class SayHelloHandler : IHandleMessages<ISayHello>
+    public class SayHelloHandler : IHandleMessages<SayHello>
     {
-        public void Handle(ISayHello message)
+        public void Handle(SayHello message)
         {
             // var hub = new SayHelloHub();
 

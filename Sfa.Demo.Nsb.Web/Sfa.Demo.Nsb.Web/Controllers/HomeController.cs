@@ -4,7 +4,7 @@
 
     using NServiceBus;
 
-    using Common.Events;
+    using Common.Commands;
 
     public class HomeController : Controller
     {
@@ -23,7 +23,7 @@
         [HttpPost]
         public void SendEvent(int number)
         {
-            _bus.Publish<IDoSomething>(e => { e.Number = number; });
+            _bus.Publish<DoSomething>(e => { e.Number = number; });
         }
     }
 }

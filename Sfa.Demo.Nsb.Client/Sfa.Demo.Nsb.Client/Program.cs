@@ -11,6 +11,13 @@
     {
         public static void Main(string[] args)
         {
+            Console.Title = "Demo.Client";
+
+            var busConfig = BusConfigurator.GetBusConfiguration();
+            busConfig.EnableInstallers();
+
+            BusConfigurator.Bus = Bus.Create(busConfig).Start();
+
             bool exiting = false;
 
             while (!exiting)
@@ -41,6 +48,8 @@
 
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
+
+            BusConfigurator.Bus.Dispose();
         }
 
         private static bool PromptForExit()
@@ -53,15 +62,10 @@
 
         private static void StartListeningForEvent()
         {
-            bool eventHandled = false;
+            Console.WriteLine("Waiting for event... Press any key to exit");
 
-            while (!eventHandled)
-            {
-                System.Threading.Tasks.Task.Delay(TimeSpan.FromSeconds(5));
-
-                // your implementation here!
-                eventHandled = true;
-            }
+            // your implementation here!
+            Console.ReadKey();
         }
 
         private static void SendAnEvent()
@@ -72,10 +76,7 @@
             Console.WriteLine("Input your name");
             var name = Console.ReadLine();
 
-            using (IBus bus = Bus.Create(BusConfigurator<ISayHello>.GetBusConfiguration()))
-            {
-                bus.Send<ISayHello>("Demo.Server", cmd => { cmd.MyName = name; });
-            }
+            BusConfigurator.Bus.Send<SayHello>("Demo.Server", cmd => { cmd.MyName = name; });            
         }
     }
 }

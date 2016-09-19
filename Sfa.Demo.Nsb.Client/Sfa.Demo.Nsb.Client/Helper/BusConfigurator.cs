@@ -1,19 +1,37 @@
 ﻿namespace Sfa.Demo.Nsb.Client.Helper
 {
     using System;
+    using System.Collections.Generic;
 
     using NServiceBus;
 
-    public static class BusConfigurator<T>
+    using Common.Commands;
+
+    using Common.Integration;
+
+    public static class BusConfigurator
     {
-        // TODO??
+        public static IBus Bus { get; set; }
+
         public static BusConfiguration GetBusConfiguration()
         {
             BusConfiguration configuration = new BusConfiguration();
-            configuration.Conventions().DefiningCommandsAs(t => t == typeof(T));
+            configuration.EndpointName("Demo.Client");
             configuration.UseSerialization<JsonSerializer>();
             configuration.UseTransport<AzureServiceBusTransport>();
+            configuration.UseDataBus<AzureDataBus>();
+            configuration.UsePersistence<InMemoryPersistence>();
             configuration.EnableInstallers();
+
+            configuration.Conventions().DefiningEventsAs(t => null != t.Namespace && t.Namespace.EndsWith("Events"));
+            configuration.Conventions().DefiningCommandsAs(t => null != t.Namespace && t.Namespace.EndsWith("Commands"));
+
+            configuration.CustomConfigurationSource(new CustomConfigurationProvider(
+                new Dictionary<Type, string>
+                    {
+                        { typeof(SayHello), "Demo.Server" },
+                        //{ typeof(DoSomething), "Demo.Server" }
+                    }));
 
             return configuration;
         }

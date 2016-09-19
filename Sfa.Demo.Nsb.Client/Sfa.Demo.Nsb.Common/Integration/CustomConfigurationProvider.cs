@@ -1,4 +1,4 @@
-﻿namespace Sfa.Demo.Nsb.Client.Integration
+﻿namespace Sfa.Demo.Nsb.Common.Integration
 {
     using System;
     using System.Collections.Generic;
