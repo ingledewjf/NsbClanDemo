@@ -31,6 +31,11 @@
                 return GetTransportConfig() as T;
             }
 
+            if (typeof(T) == typeof(Logging))
+            {
+                return GetLoggingConfig() as T;
+            }
+
             return ConfigurationManager.GetSection(typeof(T).Name) as T;
         }
 
@@ -58,6 +63,14 @@
                            MaxRetries = 5,
                            MaximumMessageThroughputPerSecond = 0,
                            MaximumConcurrencyLevel = _concurrentThreadCount
+                       };
+        }
+
+        private Logging GetLoggingConfig()
+        {
+            return new Logging
+                       {
+                           
                        };
         }
     }

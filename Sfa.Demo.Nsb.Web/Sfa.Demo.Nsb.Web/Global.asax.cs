@@ -12,6 +12,7 @@
     using NServiceBus;
 
     using Sfa.Demo.Nsb.Common.Integration;
+    using Sfa.Demo.Nsb.Common.Logging;
     using Sfa.Demo.Nsb.Web.Hubs;
     using Sfa.Demo.Nsb.Web.Nsb;
 
@@ -55,6 +56,7 @@
                 });
             
             busConfiguration.EnableInstallers();
+            NServiceBus.Logging.LogManager.UseFactory(new NsbLoggerFactory());
 
             var startableBus = Bus.Create(busConfiguration);
             _bus = startableBus.Start();

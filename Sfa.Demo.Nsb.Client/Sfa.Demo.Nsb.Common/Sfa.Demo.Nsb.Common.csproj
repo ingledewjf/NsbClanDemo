@@ -48,6 +48,8 @@
     <Compile Include="Commands\SayHello.cs" />
     <Compile Include="Events\IDoSomething.cs" />
     <Compile Include="Integration\CustomConfigurationProvider.cs" />
+    <Compile Include="Logging\NsbLogger.cs" />
+    <Compile Include="Logging\NsbLoggerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
