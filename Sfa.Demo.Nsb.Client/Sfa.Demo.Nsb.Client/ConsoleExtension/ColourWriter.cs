@@ -2,6 +2,9 @@
 {
     using System;
 
+    /// <summary>
+    /// Use this to distinguish your console output from everything else
+    /// </summary>
     public static class ColourWriter
     {
         private static readonly object MessageLock = new object();

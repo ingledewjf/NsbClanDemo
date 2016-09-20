@@ -45,7 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\DoSomething.cs" />
     <Compile Include="Commands\SayHello.cs" />
     <Compile Include="Events\IDoSomething.cs" />
     <Compile Include="Integration\CustomConfigurationProvider.cs" />

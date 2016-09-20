@@ -16,7 +16,10 @@
             var busConfig = BusConfigurator.GetBusConfiguration();
             busConfig.EnableInstallers();
 
+            ColourWriter.WriteLine(ConsoleColor.Green, "Starting NServiceBus...");
             BusConfigurator.Bus = Bus.Create(busConfig).Start();
+            ColourWriter.WriteLine(ConsoleColor.Green, "NServiceBus started successfully.");
+            Console.WriteLine();
 
             bool exiting = false;
 
@@ -57,7 +60,7 @@
 
         private static void SendACommand()
         {
-            // Your impementation here!
+            // TODO: Your impementation here!
         }
     }
 }

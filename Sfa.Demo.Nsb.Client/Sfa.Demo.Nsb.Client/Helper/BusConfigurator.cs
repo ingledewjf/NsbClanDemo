@@ -6,11 +6,9 @@
     using NServiceBus;
 
     using Common.Commands;
-
+    using Common.Events;
     using Common.Integration;
-
-    using Sfa.Demo.Nsb.Common.Events;
-
+    
     public static class BusConfigurator
     {
         public static IBus Bus { get; set; }

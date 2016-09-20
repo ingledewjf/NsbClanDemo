@@ -11,7 +11,6 @@
 
     using NServiceBus;
 
-    using Sfa.Demo.Nsb.Common.Commands;
     using Sfa.Demo.Nsb.Common.Integration;
     using Sfa.Demo.Nsb.Web.Hubs;
     using Sfa.Demo.Nsb.Web.Nsb;
@@ -48,10 +47,7 @@
             busConfiguration.UseSerialization<JsonSerializer>();
             busConfiguration.UsePersistence<InMemoryPersistence>();
             busConfiguration.CustomConfigurationSource(new CustomConfigurationProvider(
-                new Dictionary<Type, string>
-                    {
-                        //{ typeof(DoSomething), "Demo.Client" }
-                    }));
+                new Dictionary<Type, string>()));
             busConfiguration.UseContainer<AutofacBuilder>(
                 customizations =>
                 {

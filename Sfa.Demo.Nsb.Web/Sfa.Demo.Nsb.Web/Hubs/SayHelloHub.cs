@@ -3,23 +3,12 @@
     using System;
 
     using Microsoft.AspNet.SignalR;
-    using Microsoft.AspNet.SignalR.Hubs;
 
-    using NServiceBus;
-
-    using Sfa.Demo.Nsb.Common.Commands;
-    using Sfa.Demo.Nsb.Common.Events;
-    using Sfa.Demo.Nsb.Web.Nsb;
+    using Common.Events;
+    using Nsb;
 
     public class SayHelloHub : Hub
     {
-        public void ShowMessage(string name)
-        {
-            var greeting = ConstructGreeting(name);
-
-            Clients.All.showMessage(greeting);
-        }
-
         public void Publish(string number)
         {
             int numToPublish;
@@ -38,11 +27,6 @@
                 var test = ex.Message;
                 Console.WriteLine(test);
             }
-        }
-
-        private static string ConstructGreeting(string name)
-        {
-            return $"Hello, {name}";
         }
     }
 }
