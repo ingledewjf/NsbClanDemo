@@ -106,7 +106,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Handlers\DoSomethingHandler.cs" />
+    <Compile Include="ConsoleExtension\ColourWriter.cs" />
     <Compile Include="Helper\BusConfigurator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -123,6 +123,9 @@
       <Project>{e302bc47-b83d-4a66-ac27-40364151ea17}</Project>
       <Name>Sfa.Demo.Nsb.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Handlers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
