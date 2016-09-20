@@ -12,12 +12,8 @@
     {
         public void Handle(SayHello message)
         {
-            // var hub = new SayHelloHub();
-
             var hubContext = GlobalHost.ConnectionManager.GetHubContext<SayHelloHub>();
             hubContext.Clients.All.showMessage(ConstructGreeting(message.MyName));
-
-            // hub.NewSayHelloMessage(message.MyName);
         }
 
         private static string ConstructGreeting(string name)

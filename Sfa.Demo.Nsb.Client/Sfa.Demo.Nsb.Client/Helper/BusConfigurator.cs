@@ -9,6 +9,8 @@
 
     using Common.Integration;
 
+    using Sfa.Demo.Nsb.Common.Events;
+
     public static class BusConfigurator
     {
         public static IBus Bus { get; set; }
@@ -30,7 +32,7 @@
                 new Dictionary<Type, string>
                     {
                         { typeof(SayHello), "Demo.Server" },
-                        //{ typeof(DoSomething), "Demo.Server" }
+                        { typeof(IDoSomething), "Demo.Server" }
                     }));
 
             return configuration;

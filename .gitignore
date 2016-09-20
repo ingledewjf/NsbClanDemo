@@ -253,3 +253,4 @@ paket-files/
 
 # additional stuff
 cstrings.config
+nsb_log*

@@ -50,7 +50,7 @@
             busConfiguration.CustomConfigurationSource(new CustomConfigurationProvider(
                 new Dictionary<Type, string>
                     {
-                        { typeof(DoSomething), "Demo.Client" }
+                        //{ typeof(DoSomething), "Demo.Client" }
                     }));
             busConfiguration.UseContainer<AutofacBuilder>(
                 customizations =>

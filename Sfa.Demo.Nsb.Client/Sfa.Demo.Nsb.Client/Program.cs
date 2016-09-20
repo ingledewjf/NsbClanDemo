@@ -37,11 +37,11 @@
                         break;
                     case "2":
                         StartListeningForEvent();
-                        PromptForExit();
+                        exiting = PromptForExit();
                         break;
                     default:
                         Console.WriteLine("Invalid input.");
-                        PromptForExit();
+                        exiting = PromptForExit();
                         break;
                 }
             }

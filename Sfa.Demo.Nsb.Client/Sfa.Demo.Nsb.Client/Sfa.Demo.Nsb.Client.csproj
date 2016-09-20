@@ -106,7 +106,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EndpointConfig.cs" />
     <Compile Include="Handlers\DoSomethingHandler.cs" />
     <Compile Include="Helper\BusConfigurator.cs" />
     <Compile Include="Program.cs" />

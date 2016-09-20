@@ -8,6 +8,7 @@
     using NServiceBus;
 
     using Sfa.Demo.Nsb.Common.Commands;
+    using Sfa.Demo.Nsb.Common.Events;
     using Sfa.Demo.Nsb.Web.Nsb;
 
     public class SayHelloHub : Hub
@@ -29,7 +30,7 @@
             {
                 if (isNumber)
                 {
-                    ServiceBus.Bus.Send<DoSomething>(msg => { msg.Number = numToPublish; });
+                    ServiceBus.Bus.Publish<IDoSomething>(msg => { msg.Number = numToPublish; });
                 }
             }
             catch (Exception ex)

@@ -6,9 +6,11 @@
 
     using Common.Commands;
 
-    public class DoSomethingHandler : IHandleMessages<DoSomething>
+    using Sfa.Demo.Nsb.Common.Events;
+
+    public class DoSomethingHandler : IHandleMessages<IDoSomething>
     {
-        public void Handle(DoSomething message)
+        public void Handle(IDoSomething message)
         {
             // Handle IDoSomething here!
             Console.WriteLine($"I am doing a thing with number {message.Number}!");
