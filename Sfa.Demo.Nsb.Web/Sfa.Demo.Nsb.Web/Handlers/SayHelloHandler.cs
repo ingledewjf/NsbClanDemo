@@ -8,9 +8,9 @@
 
     using Hubs;
 
-    public class SayHelloHandler : IHandleMessages<SayHello>
+    public class SayHelloHandler : IHandleMessages<SayHelloCommand>
     {
-        public void Handle(SayHello message)
+        public void Handle(SayHelloCommand message)
         {
             var hubContext = GlobalHost.ConnectionManager.GetHubContext<SayHelloHub>();
             hubContext.Clients.All.showMessage(ConstructGreeting(message.MyName));

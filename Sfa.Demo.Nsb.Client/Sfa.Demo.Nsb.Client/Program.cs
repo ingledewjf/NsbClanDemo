@@ -6,6 +6,7 @@
 
     using Sfa.Demo.Nsb.Client.ConsoleExtension;
     using Sfa.Demo.Nsb.Client.Helper;
+    using Sfa.Demo.Nsb.Common.Commands;
 
     public class Program
     {
@@ -60,7 +61,7 @@
 
         private static void SendACommand()
         {
-            // TODO: Your impementation here!
+            BusConfigurator.Bus.Send<SayHelloCommand>(msg => { msg.MyName = "Joe"; });
         }
     }
 }

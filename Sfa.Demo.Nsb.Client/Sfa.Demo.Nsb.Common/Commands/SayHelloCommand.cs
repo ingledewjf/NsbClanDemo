@@ -1,6 +1,6 @@
 ﻿namespace Sfa.Demo.Nsb.Common.Commands
 {
-    public class SayHello
+    public class SayHelloCommand
     {
         public string MyName { get; set; }
     }

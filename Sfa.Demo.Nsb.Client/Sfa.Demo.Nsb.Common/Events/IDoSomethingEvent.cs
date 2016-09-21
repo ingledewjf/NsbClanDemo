@@ -1,6 +1,6 @@
 ﻿namespace Sfa.Demo.Nsb.Common.Events
 {
-    public interface IDoSomething
+    public interface IDoSomethingEvent
     {
         int Number { get; set; }
     }

@@ -45,8 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\SayHello.cs" />
-    <Compile Include="Events\IDoSomething.cs" />
+    <Compile Include="Commands\SayHelloCommand.cs" />
+    <Compile Include="Events\IDoSomethingEvent.cs" />
     <Compile Include="Integration\CustomConfigurationProvider.cs" />
     <Compile Include="Logging\NsbLogger.cs" />
     <Compile Include="Logging\NsbLoggerFactory.cs" />

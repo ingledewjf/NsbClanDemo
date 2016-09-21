@@ -29,7 +29,7 @@
             configuration.CustomConfigurationSource(new CustomConfigurationProvider(
                 new Dictionary<Type, string>
                     {
-                        { typeof(SayHello), "Demo.Server" },
+                        { typeof(SayHelloCommand), "Demo.Server" },
                         { typeof(IDoSomething), "Demo.Server" }
                     }));
 
