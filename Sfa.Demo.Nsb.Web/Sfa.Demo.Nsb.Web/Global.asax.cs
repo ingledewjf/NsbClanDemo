@@ -7,6 +7,7 @@
     using System.Web.Routing;
 
     using Autofac;
+    using Autofac.Core.Lifetime;
     using Autofac.Integration.Mvc;
 
     using NServiceBus;
@@ -38,7 +39,7 @@
 
             var container = builder.Build();
 
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container).RequestLifetimeScope);
 
             var busConfiguration = new BusConfiguration();
             busConfiguration.EndpointName("Demo.Server");
