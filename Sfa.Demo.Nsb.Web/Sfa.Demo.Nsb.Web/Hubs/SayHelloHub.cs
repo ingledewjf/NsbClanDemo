@@ -19,7 +19,7 @@
             {
                 if (isNumber)
                 {
-                    ServiceBus.Bus.Publish<IDoSomethingEvent>(msg => { msg.Number = numToPublish; });
+                    ServiceBus.Bus.Publish<INumberPublishedEvent>(msg => { msg.Number = numToPublish; });
                 }
             }
             catch (Exception ex)

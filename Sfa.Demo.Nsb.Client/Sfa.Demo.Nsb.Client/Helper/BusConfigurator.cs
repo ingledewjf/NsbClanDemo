@@ -30,7 +30,7 @@
                 new Dictionary<Type, string>
                     {
                         { typeof(SayHelloCommand), "Demo.Server" },
-                        { typeof(IDoSomething), "Demo.Server" }
+                        { typeof(INumberPublishedEvent), "Demo.Server" }
                     }));
 
             return configuration;
