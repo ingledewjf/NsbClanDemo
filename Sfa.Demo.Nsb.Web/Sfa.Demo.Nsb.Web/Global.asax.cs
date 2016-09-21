@@ -39,7 +39,7 @@
 
             var container = builder.Build();
 
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(container).RequestLifetimeScope);
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 
             var busConfiguration = new BusConfiguration();
             busConfiguration.EndpointName("Demo.Server");
