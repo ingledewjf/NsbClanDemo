@@ -72,7 +72,7 @@
 
         protected void Application_End()
         {
-            _bus?.Dispose();
+            //_bus?.Dispose();
         }
     }
 }
