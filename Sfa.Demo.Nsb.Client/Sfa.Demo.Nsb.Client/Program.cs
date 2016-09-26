@@ -6,7 +6,6 @@
 
     using Sfa.Demo.Nsb.Client.ConsoleExtension;
     using Sfa.Demo.Nsb.Client.Helper;
-    using Sfa.Demo.Nsb.Common.Commands;
 
     public class Program
     {
@@ -26,42 +25,29 @@
 
             while (!exiting)
             {
-                ColourWriter.WriteLine(ConsoleColor.Green, "Select operation:");
+                ColourWriter.WriteLine(ConsoleColor.Green, "Choose an option:");
                 ColourWriter.WriteLine(ConsoleColor.Green, "1 - Send a command");
-                Console.WriteLine();
+                ColourWriter.WriteLine(ConsoleColor.Green, "2 - Exit");
 
-                var userInput = Console.ReadLine();
+                var userOption = Console.ReadLine();
 
-                switch (userInput)
+                switch (userOption?.Trim())
                 {
                     case "1":
-                        SendACommand();
-                        exiting = PromptForExit();
+                        // Your implementation for sending a command here
+                        break;
+                    case "2":
+                        exiting = true;
                         break;
                     default:
-                        ColourWriter.WriteLine(ConsoleColor.Red, "Invalid input.");
-                        exiting = PromptForExit();
+                        ColourWriter.WriteLine(ConsoleColor.Red, "Invalid option. Please try again.");
                         break;
                 }
             }
-
             ColourWriter.WriteLine(ConsoleColor.Green, "Press any key to exit...");
             Console.ReadKey();
 
             BusConfigurator.Bus.Dispose();
-        }
-
-        private static bool PromptForExit()
-        {
-            ColourWriter.WriteLine(ConsoleColor.Green, "Exit? Y for yes, anything else for no");
-            var exit = Console.ReadLine();
-
-            return exit?.Trim().ToUpper() == "Y";
-        }
-
-        private static void SendACommand()
-        {
-            BusConfigurator.Bus.Send<SayHelloCommand>(msg => { msg.MyName = "Joe"; });
         }
     }
 }
